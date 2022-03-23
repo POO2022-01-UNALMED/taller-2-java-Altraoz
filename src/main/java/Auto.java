@@ -6,14 +6,28 @@ public class Auto {
     ArrayList<Asiento> asientos;
     String marca;
     Motor motor;
-    int registros;
-    int cantidadCreados;
+    int registro;
+    static int cantidadCreados;
 
     int cantidadAsientos(){
-        return 3;
+        cantidadCreados = 0;
+        for (Asiento i: asientos){
+            if (i instanceof Asiento){
+                cantidadCreados ++;
+            }
+        }
+        return cantidadCreados;
     }
 
     String verificarIntegridad(){
-        return "peguelosocito";
+        if (this.motor.registro == registro ){
+            for (Asiento i: asientos){
+                if (i.registro != registro){
+                    return "Las piezas no son originales";
+                }
+            }
+        }else {
+            
+        }
     }
 }
